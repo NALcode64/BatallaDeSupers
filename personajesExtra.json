@@ -1,0 +1,45 @@
+[
+        {
+                "nombre" : "Pantera Negra",
+                "poder" : "4563",
+                "agilidad" : "8643",
+                "inteligencia" : "3422",
+                "imagen" : "./img/panteraNegra.jpg",
+                "id" : "11"
+        },
+        {
+                "nombre" : "Capitana Marvel",
+                "poder" : "24569",
+                "agilidad" : "19923",
+                "inteligencia" : "2344",
+                "imagen" : "./img/capitanaMarvel.jpg",
+                "id" : "12"
+        },
+        {
+                "nombre" : "Doctor Strange",
+                "poder" : "23451",
+                "agilidad" : "12321",
+                "inteligencia" : "123",
+                "imagen" : "./img/doctorStrange.jpg",
+                "id" : "13"
+        },
+        {
+                "nombre" : "Wolverine",
+                "poder" : "24569",
+                "agilidad" : "19923",
+                "inteligencia" : "2344",
+                "imagen" : "./img/wolverine.jpg",
+                "id" : "14"
+        },
+        {
+                "nombre" : "Deadpool",
+                "poder" : "24569",
+                "agilidad" : "19923",
+                "inteligencia" : "2344",
+                "imagen" : "./img/deadpool.jpg",
+                "id" : "15"
+        }
+]
+
+
+
