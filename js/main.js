@@ -36,7 +36,9 @@ const personajeSeleccionado1 = document.getElementById("personaje1"),
       botonReset = document.createElement("div"),
       botonLucha = document.createElement("div"),
       contenedorSupers = document.querySelector(".contenedor"),
-      botonQuieroMasPersonajes = document.getElementById("quieroMas");
+      botonQuieroMasPersonajes = document.getElementById("quieroMas"),
+      botonModoOscuro = document.querySelector('#modoOscuro'),
+      empate = document.getElementById("empate");
 
 //FUNCION PARA AGREGAR SUPERS DE MANERA DINAMICA
 function agregarSupers(listaSupers) {
@@ -114,9 +116,8 @@ function reiniciar() {
   personajeSeleccionado2.innerHTML = "";
   botonReset.innerHTML = "";
   botonLucha.innerHTML = "";
+  empate.innerHTML = "";
   superSeleccionados.splice(0, superSeleccionados.length);
-
-  guardarEnStorage("listaDeGanadores", JSON.stringify(ganadores)); //cada vez que reiniciamos el juego guarda a los ganadores
 }
 
 //FUNCION PARA LUCHA DE PERSONAJES
@@ -129,26 +130,18 @@ function luchar() {
     personajeSeleccionado2.innerHTML = "";
     botonLucha.innerHTML = "";
 
-    return ganadores.push(superSeleccionados[0]); //guardo los personajes que van ganando en una variable
-
   } else if (poderSuperDos > poderSuperUno) {
     personajeSeleccionado2.innerHTML = `<div id="ganador"> <img src="${superSeleccionados[1].imagen}" alt="${superSeleccionados[1].nombre}" /> GANADOR "${superSeleccionados[1].nombre}" <div/> `;
     personajeSeleccionado1.innerHTML = "";
     botonLucha.innerHTML = "";
-
-    return ganadores.push(superSeleccionados[1]);
     
   } else {
-    alert("TENEMOS UN EMPATE!!!");
+    personajeSeleccionado1.innerHTML = "";
+    personajeSeleccionado2.innerHTML = "";
+    empate.innerHTML = `<div id="empate"> <img src="./img/venom.jpg" alt="X" /> <div/> `;
+    botonLucha.innerHTML = "";
+    venomAudio();
   }
-}
-
-//STORAGE
-const ganadores = []; //para guardar a los ganadores por cada pelea realizada
-
-//FUNCION QUE GUARDA CADA OBJETO EN LOCAL STORAGE, PREVIAMENTE SE NECESITA QUE EL OBJETO ESTE TRANSFORMADO POR JSON
-function guardarEnStorage(nombre, valor) {
-  localStorage.setItem(nombre, valor);
 }
 
 //SWEET ALERT
@@ -180,7 +173,38 @@ function agregarMas() {
   botonQuieroMasPersonajes.innerHTML = ""; //DESAPARECE EL BOTON PARA AGREGAR MAS PERSONAJES 
 }
 
+//MODO OSCURO CON LOCAL STORAGE 
+botonModoOscuro.addEventListener('click', () => {
+	document.body.classList.toggle('dark');
+	botonModoOscuro.classList.toggle('active');
+
+
+if(document.body.classList.contains('dark')){
+		localStorage.setItem('venomized-mode', 'true');
+	} else {
+		localStorage.setItem('venomized-mode', 'false');
+	}
+});
+
+
+if(localStorage.getItem('venomized-mode') === 'true'){
+    document.body.classList.add('dark');
+    botonModoOscuro.classList.add('active');
+} else {
+    document.body.classList.remove('dark');
+    botonModoOscuro.classList.remove('active');
+}
+  
+//SONIDO VENOM
+function venomAudio() {
+  const venom = new Audio('./data/venom.mp3');
+  venom.play();
+}
+
 //PROGRAMA
 agregarSupers(superHeroes); //AGREGA LOS SUPERS EN LA PÁGINA 
 agregarEventos(superHeroes); //AGREGAR EVENTOS EN LAS TARJETAS 
+
+
+
 

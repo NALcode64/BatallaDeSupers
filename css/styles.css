@@ -18,6 +18,7 @@ body {
     background-image: url("https://img.freepik.com/vector-gratis/fondo-azul-abstracto-comico_225004-669.jpg?w=740&t=st=1653681047~exp=1653681647~hmac=969af0a1bea92f546c67d9367de5bb841cf3ddb4d4ba77b6bbabf51f3d67c99e");
 }
 
+/*TITULO Y BOTON MODO OSCURO*/
 h1 {
     border: 1px solid black;
     border-radius: 100px;
@@ -27,6 +28,72 @@ h1 {
     background-color: red;
     color: white;
     letter-spacing: 3px;
+}
+
+.venomized {
+    position: absolute;
+    right: 75px;
+    top: 14px;
+}
+
+.venomized img {
+    width: 55px;
+    height: 55px;
+    cursor:pointer;
+}
+
+/* MODO OSCURO */
+body.dark {
+    background: #111111;
+    background-image: url(/img/fondoVenom.jpg)
+}
+
+.dark h1 {
+    background-color: black;
+    border: white 1px solid;
+}
+
+.dark .venomized img {
+    border: 1px white solid;
+    border-radius: 100%;
+}
+
+.dark .tarjeta {
+    border: 3px inset white;
+}
+
+.dark #mensajeSeleccionar {
+    background-color: black;
+    color: white;
+    border: 3px inset white;
+}
+
+.dark #personaje1 {
+    border: 3px inset white;
+    background-color: white;
+    color: black;
+}
+
+.dark #personaje2 {
+    border: 3px inset white;
+    background-color: white;
+    color: black;
+}
+
+.dark .caracteristicas {
+    text-shadow: 0 0 0px;
+    background-image: url(/img/telerañasFondo.jpg);
+    background-size: contain;
+}
+
+.dark #botonLuchar {
+    background-color: white;
+    cursor:pointer;
+}
+
+.dark #botonReset {
+    background-color: white;
+    cursor:pointer;
 }
 
 /* DISEÑO MENSAJE "SELECCIONE UN PERSONAJE" */
@@ -58,10 +125,17 @@ h1 {
     height: 255px;
 }
 
+/* TARJETA DE CADA SUPER */
+.tarjeta {
+    border: 2px black solid;
+    cursor:pointer;
+}
+
 /* CONTENEDORES DE PERSONAJES SELECCIONADOS (TARJETAS) */
 #contenedorPersonajes {
     display: flex; 
     justify-content: space-around;
+    text-align: center;
     margin-top: 45px;
 }
 
@@ -128,9 +202,9 @@ h1 {
     background-color: #f23000;
     padding: 3px 10px 3px 10px;
     border-radius: 2px;
-    cursor: pointer;
     border: 2px solid black;
     transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+    cursor:pointer;
 }
 
 #botonReset {
@@ -139,15 +213,15 @@ h1 {
     background-color: #f23000;
     padding: 3px 5px 3px 10px;
     border-radius: 2px;
-    cursor: pointer;
     border: 2px solid black;
     transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+    cursor:pointer;
 }
 
 #quieroMas {
-    cursor: pointer;
     display: flex;
     margin-left: 200px;
+    cursor:pointer;
 }
 
 #botonLuchar:hover {
@@ -173,15 +247,28 @@ h1 {
 /* ESTILO DE LA IMAGEN DEL SUPER GANADOR */
 #ganador {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
     margin: 5px;
     padding: 5px;
 }
 
-/* TARJETA DE CADA SUPER */
-.tarjeta {
-    cursor: pointer;
-    border: 2px black solid;
+#ganador img {
+    margin: 10px;
+    border: black solid 2px;
 }
+
+/* EMPATE */
+#empate {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#empate img {
+    height: 512px;
+    width: 512px;
+} 
+
+
 
